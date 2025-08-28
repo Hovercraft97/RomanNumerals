@@ -2,75 +2,27 @@ import { test, expect } from "vitest";
 
 function romanNumerals(number) {
   let answer = "";
-  while (number >= 10) {
-    number -= 10;
-    answer += "X";
+  function digitConverter(digit, romanNumber) {
+    while (number >= digit) {
+      number -= digit;
+      answer += romanNumber;
+    }
   }
-  if (number === 9) {
-    number -= 9;
-    answer += "IX";
-  }
-  if (number >= 5) {
-    number -= 5;
-    answer += "V";
-  }
-  if (number === 4) {
-    number -= 4;
-    answer += "IV";
-  }
-  for (let i = 0; i < number; i++) {
-    answer += "I";
-  }
+  digitConverter(10, "X");
+  digitConverter(9, "IX");
+  digitConverter(5, "V");
+  digitConverter(4, "IV");
+  digitConverter(1, "I");
   return answer;
 }
 
-test("1 in roman numerals is I", () => {
-  expect(romanNumerals(1)).toBe("I");
-});
-
-test("2 in roman numerals is II", () => {
-  expect(romanNumerals(2)).toBe("II");
-});
-
-test("3 in roman numerals is III", () => {
-  expect(romanNumerals(3)).toBe("III");
-});
-
-test("4 in roman numerals is IV", () => {
-  expect(romanNumerals(4)).toBe("IV");
-});
-
-test("5 in roman numerals is V", () => {
-  expect(romanNumerals(5)).toBe("V");
-});
-
-test("6 in roman numerals is VI", () => {
-  expect(romanNumerals(6)).toBe("VI");
-});
-
-test("7 in roman numerals is VII", () => {
-  expect(romanNumerals(7)).toBe("VII");
-});
-
-test("8 in roman numerals is VIII", () => {
-  expect(romanNumerals(8)).toBe("VIII");
-});
-
-test("9 in roman numerals is IX", () => {
-  expect(romanNumerals(9)).toBe("IX");
-});
-test("10 in roman numerals is X", () => {
-  expect(romanNumerals(10)).toBe("X");
-});
-test("11 in roman numerals is XI", () => {
-  expect(romanNumerals(11)).toBe("XI");
-});
-test("20 in roman numerals is XX", () => {
-  expect(romanNumerals(20)).toBe("XX");
-});
-test("34 in roman numerals is XXXIV", () => {
-  expect(romanNumerals(34)).toBe("XXXIV");
-});
-test("39 in roman numerals is XXXIX", () => {
-  expect(romanNumerals(39)).toBe("XXXIX");
-});
+function testFunction(number, expected) {
+  test(`${number} in roman numerals is ${expected}`, () => {
+    expect(romanNumerals(number)).toBe(expected);
+  });
+}
+testFunction(1, "I");
+testFunction(34, "XXXIV");
+testFunction(39, "XXXIX");
+testFunction(77, "XXXXXXXVII");
+testFunction(99, "XXXXXXXXXIX"); //99 is current max for testing
