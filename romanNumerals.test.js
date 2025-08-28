@@ -8,6 +8,12 @@ function romanNumerals(number) {
       answer += romanNumber;
     }
   }
+  digitConverter(100, "C");
+  digitConverter(99, "IC");
+  digitConverter(90, "XC");
+  digitConverter(89, "IXC");
+  digitConverter(50, "L");
+  digitConverter(49, "IL");
   digitConverter(10, "X");
   digitConverter(9, "IX");
   digitConverter(5, "V");
@@ -24,5 +30,7 @@ function testFunction(number, expected) {
 testFunction(1, "I");
 testFunction(34, "XXXIV");
 testFunction(39, "XXXIX");
-testFunction(77, "XXXXXXXVII");
-testFunction(99, "XXXXXXXXXIX"); //99 is current max for testing
+testFunction(49, "IL");
+testFunction(77, "LXXVII");
+testFunction(90, "XC");
+testFunction(99, "IC"); //99 is current max for testing, 50 and 90 missing too!
