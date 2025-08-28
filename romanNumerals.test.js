@@ -1,7 +1,9 @@
 import { test, expect } from "vitest";
 
 function romanNumerals(number) {
-  return "I";
+  if (number == 1) {
+    return "I";
+  }
 }
 
 test("1 in roman numerals is I", () => {
