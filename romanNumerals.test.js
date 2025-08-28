@@ -1,11 +1,15 @@
 import { test, expect } from "vitest";
 
 function romanNumerals(number) {
-  if (number === 1) {
-    return "I";
-  }
-  if (number === 2) {
-    return "II";
+
+    if (number === 3) {
+        return "III";
+    }
+    if (number === 2) {
+        return "II";
+    }
+    if (number === 1) {
+      return "I";
   }
   return null;
 }
@@ -20,4 +24,8 @@ test("2 in roman numerals is II", () => {
 
 test("3 in roman numerals is III", () => {
   expect(romanNumerals(3)).toBe("III");
+});
+
+test("4 in roman numerals is IV", () => {
+  expect(romanNumerals(4)).toBe("IV");
 });
