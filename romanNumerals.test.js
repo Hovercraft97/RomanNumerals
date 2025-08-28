@@ -1,7 +1,7 @@
 import { test, expect } from "vitest";
 
 function romanNumerals(number) {
-  if (number == 1) {
+  if (number === 1) {
     return "I";
   }
 }
